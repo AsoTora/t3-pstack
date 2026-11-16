@@ -957,6 +957,18 @@
       "replacement": "hourly schedule_task",
       "rationale": "the plan arms a schedule_task; the checker's marker moves with the template",
       "files": "^skills/poteto-mode/scripts/check-plan\\.(?:mjs|test\\.ts)$"
+    },
+    {
+      "pattern": "GitHub CLI (`gh`) is the default.",
+      "replacement": "GitHub CLI (`gh`) is the default. If the `origin` remote is a GitLab host and `glab repo view` resolves it, the forge is GitLab: use `glab` for every operation and read PR as MR (`glab mr create|view|diff|note|merge`, `glab ci status`, `glab ci trace`, and `glab api` for the rest), with no Origin and no GitHub watcher.",
+      "rationale": "fork: GitLab forge through glab for self-hosted GitLab remotes",
+      "files": "^skills/poteto-mode/playbooks/(?:babysit|autopilot-full)\\.md$"
+    },
+    {
+      "pattern": "Those are GitHub watcher verdicts.",
+      "replacement": "Those are GitHub watcher verdicts. On GitLab, read state with `glab mr view <mr> -F json`, `glab mr view <mr> --unresolved`, and `glab ci status --live`. Stop `drive` when the pipeline passed, `detailed_merge_status` is `mergeable`, and no blocking discussion is unresolved. Never resolve a discussion unless the user asks.",
+      "rationale": "fork: GitLab stop conditions for babysit, since the watcher is GitHub-only",
+      "files": "^skills/poteto-mode/playbooks/babysit\\.md$"
     }
   ],
   "denylist": [
