@@ -960,7 +960,7 @@
     },
     {
       "pattern": "GitHub CLI (`gh`) is the default.",
-      "replacement": "GitHub CLI (`gh`) is the default. If the `origin` remote is a GitLab host and `glab repo view` resolves it, the forge is GitLab: use `glab` for every operation and read PR as MR (`glab mr create|view|diff|note|merge`, `glab ci status`, `glab ci trace`, and `glab api` for the rest), with no Origin and no GitHub watcher.",
+      "replacement": "GitHub CLI (`gh`) is the default. If the `origin` remote is a GitLab host and `glab repo view` resolves it, the forge is GitLab: use `glab` for every operation and read PR as MR (`glab mr create|view|diff|note|merge`, `glab ci status`, `glab ci trace`, and `glab api` for the rest), with no Origin and no GitHub watcher. The Origin and `gh` steps that follow apply only to other remotes.",
       "rationale": "fork: GitLab forge through glab for self-hosted GitLab remotes",
       "files": "^skills/poteto-mode/playbooks/(?:babysit|autopilot-full)\\.md$"
     },
@@ -969,6 +969,18 @@
       "replacement": "Those are GitHub watcher verdicts. On GitLab, read state with `glab mr view <mr> -F json`, `glab mr view <mr> --unresolved`, and `glab ci status --live`. Stop `drive` when the pipeline passed, `detailed_merge_status` is `mergeable`, and no blocking discussion is unresolved. Never resolve a discussion unless the user asks.",
       "rationale": "fork: GitLab stop conditions for babysit, since the watcher is GitHub-only",
       "files": "^skills/poteto-mode/playbooks/babysit\\.md$"
+    },
+    {
+      "pattern": "Record any fallback to `gh`. Never require `gt`.",
+      "replacement": "Record any fallback to `gh`. Never require `gt`. On a GitLab `origin` that `glab repo view` resolves, the forge is GitLab: use `glab` for every MR operation.",
+      "rationale": "fork: GitLab forge through glab for self-hosted GitLab remotes",
+      "files": "^skills/poteto-mode/playbooks/multi-phase-plan\\.md$"
+    },
+    {
+      "pattern": "`gh pr create --base <base-branch>` according to the resolved forge.",
+      "replacement": "`gh pr create --base <base-branch>`, or `glab mr create --target-branch <base-branch> --yes` on GitLab, according to the resolved forge.",
+      "rationale": "fork: GitLab MR creation through glab",
+      "files": "^skills/poteto-mode/playbooks/multi-phase-plan\\.md$"
     }
   ],
   "denylist": [
