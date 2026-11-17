@@ -981,18 +981,6 @@
       "replacement": "`gh pr create --base <base-branch>`, or `glab mr create --target-branch <base-branch> --yes` on GitLab, according to the resolved forge.",
       "rationale": "fork: GitLab MR creation through glab",
       "files": "^skills/poteto-mode/playbooks/multi-phase-plan\\.md$"
-    },
-    {
-      "pattern": "Passive is fine only when the actor is unknown or genuinely doesn't matter.",
-      "replacement": "Passive is fine only when the actor is unknown or genuinely doesn't matter. The author is never the actor. In PR and MR descriptions, commit messages, review notes, ticket comments, and docs, write no first person (\"I\", \"my\", \"we\"): make the change the subject (\"Adds the guard script\"), name the component, or use the passive for evidence (\"The dry run passed\").",
-      "rationale": "fork: \"name the actor\" made agents narrate PR and MR bodies as \"I added\"; the author is never the actor",
-      "files": "^skills/unslop/SKILL\\.md$"
-    },
-    {
-      "pattern": "- PR descriptions and commit messages are writing too.",
-      "replacement": "- PR descriptions and commit messages are writing too. Write them without first person: the change is the subject, not its author.",
-      "rationale": "fork: PR and MR bodies and commit messages carry no first person",
-      "files": "^skills/technical-writing/SKILL\\.md$"
     }
   ],
   "denylist": [
